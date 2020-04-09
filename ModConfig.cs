@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 namespace EzTravel
 {
     [Serializable]
-    public class Config
+    public class ModConfig
     {
-
-        public bool Mode = false;
         public TravelPoint[] TravelPoints;
     }
 }

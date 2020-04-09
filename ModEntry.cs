@@ -18,18 +18,35 @@ namespace EzTravel
     /// </summary>
     public class ModEntry : Mod
     {
+        public static ModConfig Config;
         /*********
-** Public methods
-*********/
+        ** Public methods
+        *********/
         /// <summary>The mod entry point, called after the mod is first loaded.</summary>
         /// <param name="helper">Provides simplified APIs for writing mods.</param>
         public override void Entry(IModHelper helper)
         {
+            Config = helper.ReadConfig<ModConfig>();
             helper.Events.Input.ButtonPressed += this.OnButtonPressed;
             helper.Events.Player.Warped += this.OnWarped;
+            helper.Events.Input.CursorMoved += this.OnCursorMoved;
         }
 
+        private void OnCursorMoved(object sender, CursorMovedEventArgs e) 
+        {
+            if (!Context.IsWorldReady)
+                return;
 
+            var menu = (Game1.activeClickableMenu as GameMenu);
+            if (menu == null)
+                return;
+
+            var map = (Helper.Reflection.GetField<List<IClickableMenu>>(menu, "pages").GetValue()[3]) as MapPage;
+            if (map == null)
+                return;
+
+
+        }
         /*********
         ** Private methods
         *********/
@@ -42,8 +59,25 @@ namespace EzTravel
             if (!Context.IsWorldReady)
                 return;
 
+            var menu = (Game1.activeClickableMenu as GameMenu);
+            if (menu == null || menu.currentTab != GameMenu.mapTab) // Also make sure it's on the right tab(Map)
+                return;
+
+            var map_page = (Helper.Reflection.GetField<List<IClickableMenu>>(menu, "pages").GetValue()[3]) as MapPage;
+            if (map_page == null)
+                return;
+
+            int x = Game1.getMouseX();
+            int y = Game1.getMouseY();
+
+            foreach(ClickableComponent point in map_page.points)
+            {
+                if (!point.containsPoint(x, y))
+                    continue;
+            }
             // print button presses to the console window
             this.Monitor.Log($"{Game1.player.Name} pressed {e.Button}.", LogLevel.Debug);
+            //if(e.Button == SButton.LeftShift + SButton.B)
         }
 
         private void OnWarped(object sender, WarpedEventArgs e)
