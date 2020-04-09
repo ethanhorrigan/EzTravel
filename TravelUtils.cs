@@ -1,4 +1,6 @@
-﻿using System;
+﻿using StardewValley;
+using StardewValley.Menus;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +17,7 @@ namespace EzTravel
         /// <returns></returns>
         public static bool PointExistsInConfig(ClickableComponent point)
         {
-            return ModEntry.Config.FastTravelPoints.Any(t => point.name.StartsWith(t.MapName.Replace("{0}", Game1.player.farmName.Value)));
+            return ModEntry.Config.TravelPoints.Any(t => point.name.StartsWith(t.MapName.Replace("{0}", Game1.player.farmName.Value)));
         }
 
         /// <summary>
@@ -26,7 +28,7 @@ namespace EzTravel
         public static GameLocation GetLocationForMapPoint(ClickableComponent point)
         {
             string pointName = point.name;
-            return Game1.locations[ModEntry.Config.FastTravelPoints.First(t => pointName.StartsWith(t.MapName.Replace("{0}", Game1.player.farmName.Value))).GameLocationIndex];
+            return Game1.locations[ModEntry.Config.TravelPoints.First(t => pointName.StartsWith(t.MapName.Replace("{0}", Game1.player.farmName.Value))).LocationIndex];
         }
 
         /// <summary>
@@ -34,10 +36,10 @@ namespace EzTravel
         /// </summary>
         /// <param name="point"></param>
         /// <returns></returns>
-        public static FastTravelPoint GetFastTravelPointForMapPoint(ClickableComponent point)
+        public static TravelPoint GetFastTravelPointForMapPoint(ClickableComponent point)
         {
             string pointName = point.name.Replace("{0}", Game1.player.farmName.Value);
-            return ModEntry.Config.FastTravelPoints.First(t => pointName.StartsWith(t.MapName.Replace("{0}", Game1.player.farmName.Value)));
+            return ModEntry.Config.TravelPoints.First(t => pointName.StartsWith(t.MapName.Replace("{0}", Game1.player.farmName.Value)));
         }
     }
 }
