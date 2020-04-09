@@ -60,11 +60,30 @@ namespace EzTravel
                 var loc = TravelUtils.GetLocationForMapPoint(point);
                 var travelPoint = TravelUtils.GetFastTravelPointForMapPoint(point);
                 this.Monitor.Log($"location: {loc.Name}.", LogLevel.Debug);
-                if (e.Button == SButton.MouseLeft)
+                var mapTab = Game1.activeClickableMenu is GameMenu gm && gm.currentTab == GameMenu.mapTab;
+
+                if (e.Button == SButton.MouseLeft && mapTab)
                 {
                     Game1.warpFarmer(travelPoint.RouteName == null ? loc.Name : travelPoint.RouteName, travelPoint.SpawnPoint.X, travelPoint.SpawnPoint.Y, false);
                     Game1.exitActiveMenu();
-                }          
+                }
+                /// Teleport Home using "H"
+                if(e.Button == SButton.H)
+                {
+                    Game1.warpFarmer("Home", 65, 18, false);
+                    Game1.exitActiveMenu();
+                }
+                if (e.Button == SButton.O)
+                {
+                    ///"MapName": "Mines",
+                    Game1.warpFarmer("Mines", 54, 7, false);
+                    Game1.exitActiveMenu();
+                }
+                if (e.Button == SButton.B)
+                {
+                    Game1.warpFarmer("Fish Shop", 30, 35, false);
+                    Game1.exitActiveMenu();
+                }
             }
 
         }
