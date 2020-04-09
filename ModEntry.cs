@@ -52,6 +52,23 @@ namespace EzTravel
             int x = Game1.getMouseX();
             int y = Game1.getMouseY();
 
+            if (e.Button == SButton.H)
+            {
+                Game1.warpFarmer("Home", 65, 18, false);
+                Game1.exitActiveMenu();
+            }
+            if (e.Button == SButton.O)
+            {
+                ///"MapName": "Mines",
+                Game1.warpFarmer("Mines", 54, 7, false);
+                Game1.exitActiveMenu();
+            }
+            if (e.Button == SButton.B)
+            {
+                Game1.warpFarmer("Fish Shop", 30, 18, false);
+                Game1.exitActiveMenu();
+            }
+
             foreach (ClickableComponent point in map.points)
             {
                 if (!point.containsPoint(x, y))
@@ -65,23 +82,6 @@ namespace EzTravel
                 if (e.Button == SButton.MouseLeft && mapTab)
                 {
                     Game1.warpFarmer(travelPoint.RouteName == null ? loc.Name : travelPoint.RouteName, travelPoint.SpawnPoint.X, travelPoint.SpawnPoint.Y, false);
-                    Game1.exitActiveMenu();
-                }
-                /// Teleport Home using "H"
-                if(e.Button == SButton.H)
-                {
-                    Game1.warpFarmer("Home", 65, 18, false);
-                    Game1.exitActiveMenu();
-                }
-                if (e.Button == SButton.O)
-                {
-                    ///"MapName": "Mines",
-                    Game1.warpFarmer("Mines", 54, 7, false);
-                    Game1.exitActiveMenu();
-                }
-                if (e.Button == SButton.B)
-                {
-                    Game1.warpFarmer("Fish Shop", 30, 35, false);
                     Game1.exitActiveMenu();
                 }
             }

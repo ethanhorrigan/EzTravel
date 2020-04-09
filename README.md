@@ -12,3 +12,5 @@
 
 # Update Log
 - 09/04/2020 - Version 1.0.0 Released
+- 09/04/2020 - Warp only works on map tab bug fix.
+- 09/04/2020 - Version 1.0.0 Released
