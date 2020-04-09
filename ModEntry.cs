@@ -11,6 +11,8 @@ namespace EzTravel
 {
     public class ModEntry : Mod
     {
+
+        public static ModConfig Config;
         /*********
         ** Public methods
         *********/
