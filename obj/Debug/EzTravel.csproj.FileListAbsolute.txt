@@ -1,0 +1,5 @@
+C:\Users\ethan\source\repos\EzTravel\EzTravel\bin\Debug\EzTravel.dll.config
+C:\Users\ethan\source\repos\EzTravel\EzTravel\bin\Debug\EzTravel.dll
+C:\Users\ethan\source\repos\EzTravel\EzTravel\bin\Debug\EzTravel.pdb
+C:\Users\ethan\source\repos\EzTravel\EzTravel\obj\Debug\EzTravel.dll
+C:\Users\ethan\source\repos\EzTravel\EzTravel\obj\Debug\EzTravel.pdb
