@@ -1,0 +1,10 @@
+﻿{
+  "Name": "EzTravel",
+  "Author": "@EthanHorrigan",
+  "Version": "1.0.0",
+  "Description": "Allows players to travel to any location.",
+  "UniqueID": "EthanHorrigan.EzTravel",
+  "EntryDll": "EzTravel.dll",
+  "MinimumApiVersion": "2.10.0",
+  "UpdateKeys": []
+}
