@@ -10,6 +10,10 @@ namespace EzTravel
     [Serializable]
     public struct TravelPoint
     {
+        //"MapName": "Town Square",
+        //"LocationIndex": 3,
+        //"SpawnPoint": "29, 67",
+        //"RouteName": "Town"
 
         public string MapName;
         public int LocationIndex;
