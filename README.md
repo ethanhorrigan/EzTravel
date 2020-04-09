@@ -2,7 +2,7 @@
 🗺️ A Stardew Valley Travel Mod
 
 # Guide
-![GitHub Logo](/https://github.com/ethanhorrigan/EzTravel/blob/master/Screenshots/Map.png)
+![Map](https://github.com/ethanhorrigan/EzTravel/blob/master/Screenshots/Map.png)
 
 
 # Installation
